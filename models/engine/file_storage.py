@@ -73,7 +73,7 @@ class FileStorage:
     def get(self, cls, id):
         """ Method to retrieve an object with specified id """
         if cls in classes.values():
-            for value in models.storage.all(cls):
+            for value in models.storage.all(cls).values():
                 if value.id == id:
                     return value
         return None

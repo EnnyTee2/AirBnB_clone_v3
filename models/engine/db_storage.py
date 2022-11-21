@@ -78,7 +78,7 @@ class DBStorage:
     def get(self, cls, id):
         """ Method to retrieve an object with specified id """
         if cls in classes.values():
-            for obj in models.storage.all(cls):
+            for obj in models.storage.all(cls).values():
                 if obj.id == id:
                     return obj
         return None

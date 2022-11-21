@@ -21,13 +21,9 @@ def teardown(error):
 
 """ Main Application """
 if __name__ == "__main__":
-    if getenv('HBNB_API_HOST'):
-        hostt = getenv('HBNB_API_HOST')
-    else:
-        hostt = '0.0.0.0'
-    if getenv('HBNB_API_PORT'):
-        portt = getenv('HBNB_API_PORT')
-    else:
-        portt = '5000'
-
+    hostt = getenv('HBNB_API_HOST')
+    portt = getenv('HBNB_API_PORT')
+    
+    hostt = '0.0.0.0' if not hostt else HBNB_API_HOST
+    portt = 5000 if not portt else HBNB_API_PORT
     app.run(host=hostt, port=portt, threaded=True)

@@ -94,5 +94,5 @@ class DBStorage:
         else:
             count = 0
             for obj in classes.values():
-                count += len(models.storage.all().values())
+                count += len(models.storage.all(obj).values())
         return count

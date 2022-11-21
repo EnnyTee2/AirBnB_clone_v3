@@ -19,6 +19,7 @@ def teardown(error):
     storage.close()
 
 
+""" Main Application """
 if __name__ == "__main__":
     if getenv('HBNB_API_HOST'):
         hostt = getenv('HBNB_API_HOST')

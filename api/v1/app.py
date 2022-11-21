@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 """ Flask Application that runs based on an imported Blueprint """
+from flask import Flask, make_response, jsonify
+from flask_cors import CORS
 from models import storage
 from api.v1.views import app_views
-from flask import Flask
 from os import getenv
-from flask_cors import CORS
+
 
 
 app = Flask(__name__)

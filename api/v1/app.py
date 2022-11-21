@@ -26,3 +26,14 @@ if __name__ == "__main__":
     hostt = '0.0.0.0' if not hostt else HBNB_API_HOST
     portt = 5000 if not portt else HBNB_API_PORT
     app.run(host=hostt, port=portt, threaded=True)
+    
+    
+    @app.errorhandler(404)
+    def handle_404(exception):
+    """
+    handles 404 errors, in the event that global error handler fails
+    """
+    code = exception.__str__().split()[0]
+    description = exception.description
+    message = {'error': description}
+    return make_response(jsonify(message), code)

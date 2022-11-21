@@ -12,4 +12,4 @@ def all_states():
     state_list = []
     for state in all_states:
         state_list.append(state.to_dict())
-    return jsonify(all_states)
+    return jsonify(state_list)

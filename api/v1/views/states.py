@@ -22,4 +22,4 @@ def get_state(state_id):
     state = storage.get(State, state_id)
     if not State:
         abort(404)
-    return jsonify(state.todict())
+    return jsonify(state.to_dict())

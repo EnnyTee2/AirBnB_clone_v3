@@ -20,11 +20,11 @@ def teardown(error):
 
 
 if __name__ == "__main__":
-    if getenv('HBNB_API_HOST') != none:
+    if getenv('HBNB_API_HOST'):
         hostt = getenv('HBNB_API_HOST')
     else:
         hostt = '0.0.0.0'
-    if getenv('HBNB_API_PORT') != none:
+    if getenv('HBNB_API_PORT'):
         portt = getenv('HBNB_API_PORT'))
     else:
         portt = '5000'

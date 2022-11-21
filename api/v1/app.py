@@ -1,7 +1,8 @@
 from models import storage
 from api.v1.views import app_views
-from flask import Flask, Blueprint
+from flask import Flask
 from os import getenv
+
 
 app = Flask(__name__)
 app.register_blueprint(app_views)
@@ -22,4 +23,4 @@ if __name__ == "__main__":
     else:
         portt = 5000
 
-    app.run(host=hostt, port=portt)
+    app.run(host=hostt, port=portt, threaded=True)

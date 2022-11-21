@@ -11,11 +11,6 @@ def teardown():
     """ Method to teardown app context"""
     return storage.close()
 
-@app_views.route('/status', methods=['GET'])
-def status():
-    """ Method to return app status """
-    return jsonify({'status': 'OK'})
-
 
 if __name__ == "__main__":
     if getenv('HBNB_API-HOST') != none:

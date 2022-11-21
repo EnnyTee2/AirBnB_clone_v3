@@ -80,16 +80,16 @@ class DBStorage:
         if cls in classes.values():
             for obj in models.storage.all(cls):
                 if obj.id == id:
-                      return obj
+                    return obj
         return None
 
     def count(self, cls=None):
         """ Method to count the number of objects in
             the current database session or specified table
         """
-        if (cls != None) and (cls in classes.values()):
-            count =  len(models.storage.all(cls).values())    
-        elif (cls != None) and (cls not in classes.values()):
+        if (cls is not None) and (cls in classes.values()):
+            count =  len(models.storage.all(cls).values())
+        elif (cls is not None) and (cls not in classes.values()):
             return 0
         else:
             count = 0

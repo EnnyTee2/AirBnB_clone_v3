@@ -20,6 +20,7 @@ def all_states():
 def get_state(state_id):
     """ Method to retrieve a specific state by id """
     state = storage.get(State, state_id)
-    if not State:
+    if not state:
         abort(404)
+
     return jsonify(state.to_dict())

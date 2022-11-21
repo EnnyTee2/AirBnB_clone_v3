@@ -88,7 +88,7 @@ class DBStorage:
             the current database session or specified table
         """
         if (cls is not None) and (cls in classes.values()):
-            count =  len(models.storage.all(cls).values())
+            count = len(models.storage.all(cls).values())
         elif (cls is not None) and (cls not in classes.values()):
             return 0
         else:

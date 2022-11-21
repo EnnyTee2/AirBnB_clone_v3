@@ -83,14 +83,16 @@ class TestBaseModel(unittest.TestCase):
         and that upon creation have identical updated_at and created_at
         value."""
         inst1 = BaseModel()
-        tic = inst1.created_at
-        toc = datetime.now()
-        self.assertTrue(tic <= toc)
+        tic1 = inst1.created_at
         time.sleep(1e-4)
-        tic = inst2.created_at
+        toc1 = datetime.now()
+        self.assertTrue(tic1 <= toc1)
+        time.sleep(1e-4)
+        tic2 = inst2.created_at
         inst2 = BaseModel()
-        toc = datetime.now()
-        self.assertTrue(tic <= toc)
+        time.sleep(1e-4)
+        toc2 = inst2.created_at
+        self.assertTrue(tic2 <= toc2)
         self.assertEqual(inst1.created_at, inst1.updated_at)
         self.assertEqual(inst2.created_at, inst2.updated_at)
         self.assertNotEqual(inst1.created_at, inst2.created_at)

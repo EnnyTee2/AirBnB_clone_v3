@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 """ Index """
+from models.state import State
 from api.v1.views import app_views
-from flask import jsonify
+from flask import jsonify, make_response, request
 from models import storage
+from flasgger.utils import swag_from
 
 
 @app_views.route('/states', methods=['GET'], strict_slashes=False)
@@ -15,7 +17,9 @@ def all_states():
     return jsonify(state_list)
 
 @app_views.route('/states/<state_id>', methods=['GET'], strict_slashes=False)
-def all_states(state_id):
-    """ Method to retrieve list of a specific state by id """
-    statey = storage.get('State', state_id)
-    return jsonify(statey)
+def get_state(state_id):
+    """ Method to retrieve a specific state by id """
+    state = storage.get(State, state_id)
+    if not State:
+        abort(404)
+    return jsonify(state.todict())

@@ -26,7 +26,7 @@ if __name__ == "__main__":
     else:
         hostt = '0.0.0.0'
     if getenv('HBNB_API_PORT'):
-        portt = getenv('HBNB_API_PORT'))
+        portt = getenv('HBNB_API_PORT')
     else:
         portt = '5000'
 

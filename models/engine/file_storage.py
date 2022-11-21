@@ -56,8 +56,8 @@ class FileStorage:
                 jo = json.load(f)
             for key in jo:
                 self.__objects[key] = classes[jo[key]["__class__"]](**jo[key])
-        except:
-            pass
+        except(Exception):
+            a = Exception
 
     def delete(self, obj=None):
         """delete obj from __objects if it’s inside"""
@@ -82,9 +82,9 @@ class FileStorage:
         """ Method to count the number of objects in
             the current FileStorage or specified class
         """
-        if (cls != None) and (cls in classes.values()):
+        if (cls is not None) and (cls in classes.values()):
             count = len(models.storage.all(cls).values())
-        elif (cls != None) and (cls not in classes.values()):
+        elif (cls is not None) and (cls not in classes.values()):
             count = 0
         else:
             count = 0

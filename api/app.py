@@ -30,10 +30,10 @@ if __name__ == "__main__":
     
     @app.errorhandler(404)
     def handle_404(exception):
-    """
-    handles 404 errors, in the event that global error handler fails
-    """
-    code = exception.__str__().split()[0]
-    description = exception.description
-    message = {'error': description}
-    return make_response(jsonify(message), code)
+        """
+        handles 404 errors, in the event that global error handler fails
+        """
+        code = exception.__str__().split()[0]
+        description = exception.description
+        message = {'error': description}
+        return make_response(jsonify(message), code)

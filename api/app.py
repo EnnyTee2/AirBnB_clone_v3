@@ -17,6 +17,16 @@ def teardown(error):
     """ Method to teardown app context """
     storage.close()
 
+@app.errorhandler(404)
+def handle_404(exception):
+    """
+    handles 404 errors, in the event that global error handler fails
+    """
+    code = exception.__str__().split()[0]
+    description = exception.description
+    message = {'error': description}
+    return make_response(jsonify(message), code)
+
 
 """ Main Application """
 if __name__ == "__main__":
@@ -26,14 +36,4 @@ if __name__ == "__main__":
     hostt = '0.0.0.0' if not hostt else hostt
     portt = 5000 if not portt else portt
     app.run(host=hostt, port=portt, threaded=True)
-    
-    
-    @app.errorhandler(404)
-    def handle_404(exception):
-        """
-        handles 404 errors, in the event that global error handler fails
-        """
-        code = exception.__str__().split()[0]
-        description = exception.description
-        message = {'error': description}
-        return make_response(jsonify(message), code)
+   

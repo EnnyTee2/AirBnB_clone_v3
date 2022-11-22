@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #!/usr/bin/python3
 """ Index """
 from models.state import State
@@ -118,3 +119,6 @@ def put_state(state_id):
     storage.save()
     return make_response(jsonify(state.to_dict()), 200)
 >>>>>>> 28de02f684255f7ca9a0c2d4264759fde28fbe3a
+=======
+
+>>>>>>> 00123ad42c7649c75fe91054a78bf0a4f3c01ceb
